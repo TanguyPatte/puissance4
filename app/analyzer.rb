@@ -5,11 +5,11 @@ class Analyzer
   end
 
   def state
-    return :won if [@grid, @grid.rows, @grid.ascending_diagonals, @grid.descending_diagonals].any? do |lines|
+    return :won if alignments.any? do |lines|
       winning_line? lines
     end
 
-    return :null if @grid.none? do |column|
+    return :draw if @grid.none? do |column|
       column.include? :empty
     end
 
@@ -18,16 +18,19 @@ class Analyzer
 
   private
 
+  def alignments
+    [@grid, @grid.rows, @grid.ascending_diagonals, @grid.descending_diagonals]
+  end
+
   def winning_line? lines
     lines.any? do |line|
       four_in_a_row? line
     end
   end
 
-  def four_in_a_row? row
-    row.each_cons(4) do |tab|
-      return true if tab.uniq.size == 1 && tab[0] != :empty
+  def four_in_a_row? line
+    line.each_cons(4).any? do |stack|
+      stack.uniq.size == 1 && stack[0] != :empty
     end
-    false
   end
 end

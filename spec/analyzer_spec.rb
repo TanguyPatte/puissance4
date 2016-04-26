@@ -152,7 +152,7 @@ describe Analyzer do
         grid.add_token(6,:red)
 
      end
-     it { is_expected.to eq(:null) }
+     it { is_expected.to eq(:draw) }
     end
   end
 end

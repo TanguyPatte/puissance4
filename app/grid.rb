@@ -58,20 +58,6 @@ class Grid < Array
   end
 
   def ascending_diagonals
-    # tab << [self[0][5]]
-    # tab << [self[0][4],self[1][5]]
-    # tab << [self[0][3],self[1][4],self[2][5]]
-    # tab << [self[0][2],self[1][3],self[2][4],self[3][5]]
-    # tab << [self[0][1],self[1][2],self[2][3],self[3][4], self[4][5]]
-    # tab << [self[0][0],self[1][1],self[2][2],self[3][3], self[4][4], self[5][5]]
-
-    # tab << [self[1][0],self[2][1],self[3][2],self[4][3], self[5][4], self[6][5]]
-    # tab << [self[2][0],self[3][1],self[4][2],self[5][3], self[6][4]]
-    # tab << [self[3][0],self[4][1],self[5][2],self[6][3]]
-    # tab << [self[4][0],self[5][1],self[6][2]]
-    # tab << [self[5][0],self[6][1]]
-    # tab << [self[6][0]]
-    # tab
     diagonals self
   end
 
