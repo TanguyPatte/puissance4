@@ -14,6 +14,7 @@ class Grid < Array
 
   def add_token column, color
     row = find_next_empty_row column
+    raise IndexError.new if row.nil?
     self[column][row] = color
   end
 
@@ -37,23 +38,28 @@ class Grid < Array
   def diagonals grid
     tab = []
 
-    for i in 0...(COLUMN_COUNT - 1 ) do
-      tab[i] = []
+    nombre_de_diagonale = COLUMN_COUNT + ROW_COUNT - 1
+
+    for diagonale_number in 0...nombre_de_diagonale do
+      tab[diagonale_number] = []
+      column_index = 0
       count = 0
-      for j in (5 - i)..5 do
-        tab[i] << grid[count][j]
-        count += 1
+
+      if diagonale_number < 6
+
+        for row_index in (5 - diagonale_number)..5 do
+          tab[diagonale_number] << grid[column_index][row_index]
+          column_index += 1
+        end
+      else
+        for j in (diagonale_number - 5)..6 do
+          tab[diagonale_number] << grid[j][count]
+          count += 1
+        end
       end
+
     end
 
-    for i in 6..11 do
-      tab[i] = []
-      count = 0
-      for j in (i - 5)..6 do
-        tab[i] << grid[j][count]
-        count += 1
-      end
-    end
     tab
   end
 

@@ -47,7 +47,7 @@ describe Grid do
         end
       end
 
-      it { expect{ grid.add_token(1, :red)}.to raise_error(TypeError) }
+      it { expect{ grid.add_token(1, :red)}.to raise_error(IndexError) }
     end
   end
 
