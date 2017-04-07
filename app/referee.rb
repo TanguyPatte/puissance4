@@ -27,6 +27,10 @@ class Referee
     @current_player
   end
 
+  def render
+    @grid.to_s
+  end
+
   private
 
   def toggle_current_player

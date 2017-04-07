@@ -11,6 +11,13 @@ describe Referee do
     end
   end
 
+  describe '#render' do
+    it 'calls to_s on grid' do
+      allow_any_instance_of(Grid).to receive(:to_s).and_return("toto")
+      expect(referee.render).to eq("toto")
+    end
+  end
+
   describe '#add_token' do
     context 'when the first player plays' do
       before do
